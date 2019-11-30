@@ -5,6 +5,6 @@ Projekt zaliczeniowy na studia z przedmiotu podstawy programowania.
 <br>
 Jest to aplikacja konsolowa. Polega na obsłudze konta bankowego, gdzie użytkownik będzie mógł stworzyć nowe 
 konto i robić na nim różne operacje, np. sprawdzać informacje o nim, wpłacać lub wypłacać pieniądze.
-<br><br>
+<br>
 <h4>Technologie</h4>
-<br>C#
+C#
