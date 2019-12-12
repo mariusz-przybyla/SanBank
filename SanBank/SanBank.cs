@@ -14,11 +14,31 @@ namespace ConsoleApplication1
         {
             View view = new View();
 
+            Console.WriteLine("Witaj w SanBank! Podaj numer aby wybrac opcję.");
             view.ViewMenu();
-           
-  
 
+            int choseNumber = int.Parse(Console.ReadLine());
             
+                switch (choseNumber)
+                    {
+                        case 1:
+                    CreateAccount acc = new CreateAccount();
+                    acc.createAcc();
+                            break;
+                        case 2:
+                    AccountSupport supp = new AccountSupport();
+                    supp.statusAcc();
+                            break;
+                        case 3:
+                            Console.WriteLine("Test 3");
+                            break;
+                        case 4:
+                            Console.WriteLine("Test 4");
+                            break;
+                        default:
+                            Console.WriteLine("Błąd");
+                            break;
+                    }
         }
     }
 }
