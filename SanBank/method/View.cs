@@ -19,6 +19,8 @@ namespace SanBank.method
             Console.WriteLine("| 3. Informacje o koncie    |");
             Console.WriteLine("|---------------------------|");
             Console.WriteLine("| 4. Usuń konto             |");
+            Console.WriteLine("|---------------------------|");
+            Console.WriteLine("| 0. Zakończ                |");
             Console.WriteLine("|___________________________|");
         }
 
