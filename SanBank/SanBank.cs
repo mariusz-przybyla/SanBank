@@ -43,16 +43,8 @@ namespace ConsoleApplication1
                             del.DeleteAccont();
                             break;
                         case 0:
-                            if (choseNumber != 0)
-                            {
-                                Console.WriteLine("Wybrałeś złą opcję, podaj inną");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Do widzenia!");
-                                return;
-                            }
-                            break;
+                                view.viewGoodBye();
+                            return;
                         default:
                             Console.WriteLine("Wybrałeś złą opcję!");
                             break;

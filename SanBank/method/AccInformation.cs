@@ -14,7 +14,7 @@ namespace SanBank.method
             string login = Console.ReadLine();
             Console.WriteLine("Podaj imię użytkownika którego chcesz wyświwetlić dane..");
             string name = Console.ReadLine();
-            
+
             SQLiteConnection myConnection = new SQLiteConnection(@"Data Source = SanBankBazaSQLite");
             myConnection.Open();
             string sql = "SELECT * FROM dane WHERE login ='" + login + "' AND name = '" + name + "'";

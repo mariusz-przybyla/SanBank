@@ -32,10 +32,7 @@ namespace SanBank.method
                 SQLiteCommand command = new SQLiteCommand(sql2, mmyConnection);
                 command.ExecuteNonQuery();
                 mmyConnection.Close();
-
             }
-
-
             Console.WriteLine("Witaj w kreatorze tworzenia konta. Postępuj zgodnie z instrukcją!");
 
             Console.WriteLine("Podaj login");

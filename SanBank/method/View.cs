@@ -6,7 +6,8 @@ namespace SanBank.method
 {
     class View
     {
-        public void ViewMenu() {
+        public void ViewMenu()
+        {
             Console.WriteLine(" ___________________________");
             Console.WriteLine("|---------------------------|");
             Console.WriteLine("|          SanBank          |");
@@ -22,6 +23,13 @@ namespace SanBank.method
             Console.WriteLine("|---------------------------|");
             Console.WriteLine("| 0. Zakończ                |");
             Console.WriteLine("|___________________________|");
+        }
+
+        public void viewGoodBye() {
+            Console.WriteLine("-------------------------------");
+            Console.WriteLine("--- DO ZOBACZENIA W KRÓTCE! ---");
+            Console.WriteLine("-------------------------------");
+
         }
 
     }
