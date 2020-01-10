@@ -17,27 +17,21 @@ namespace SanBank.method
         int accountNumber;
         int statusAccount = 0;
 
+
         public void createAcc()
         {
+            fileExist();
 
-            if (!File.Exists("./SanBankBazaSQLite"))
-            {
-                SQLiteConnection.CreateFile("./SanBankBazaSQLite");
-                SQLiteConnection mmyConnection = new SQLiteConnection("/SanBankBazaSQLite");
-                mmyConnection = new SQLiteConnection("Data source = SanBankBazaSQLite");
-                mmyConnection.Open();
-
-                string sql2 = "create table dane (id INTEGER PRIMARY KEY AUTOINCREMENT, login TEXT, name TEXT, lastName TEXT, street TEXT, streetOfNumber INTEGER, accountNumber INTEGER, statusAccount INTEGER)";
-
-                SQLiteCommand command = new SQLiteCommand(sql2, mmyConnection);
-                command.ExecuteNonQuery();
-                mmyConnection.Close();
-            }
             Console.WriteLine("Witaj w kreatorze tworzenia konta. Postępuj zgodnie z instrukcją!");
 
             Console.WriteLine("Podaj login");
             login = Console.ReadLine();
-
+            int number = loginExist();
+            if (number == 1)
+            {
+                Console.WriteLine("Podany użytkownik już istnieje!");
+                return;
+            }
             Console.WriteLine("Podaj imię");
             name = Console.ReadLine();
 
@@ -65,8 +59,38 @@ namespace SanBank.method
             SQLiteCommand comm = new SQLiteCommand(sql, myConnection);
             comm.ExecuteNonQuery();
             myConnection.Close();
+        }
+        public void fileExist()
+        {
+            if (!File.Exists("./SanBankBazaSQLite"))
+            {
+                SQLiteConnection.CreateFile("./SanBankBazaSQLite");
+                SQLiteConnection mmyConnection = new SQLiteConnection("/SanBankBazaSQLite");
+                mmyConnection = new SQLiteConnection("Data source = SanBankBazaSQLite");
+                mmyConnection.Open();
 
+                string sql2 = "create table dane (id INTEGER PRIMARY KEY AUTOINCREMENT, login TEXT, name TEXT, lastName TEXT, street TEXT, streetOfNumber INTEGER, accountNumber INTEGER, statusAccount INTEGER)";
 
+                SQLiteCommand command = new SQLiteCommand(sql2, mmyConnection);
+                command.ExecuteNonQuery();
+                mmyConnection.Close();
+            }
+        }
+        public int loginExist()
+        {
+            SQLiteConnection myConnection = new SQLiteConnection("Data source = SanBankBazaSQLite");
+            myConnection.Open();
+            string sql = "SELECT login FROM dane WHERE login = '" + login + "'";
+            SQLiteCommand command = new SQLiteCommand(sql, myConnection);
+            command.ExecuteNonQuery();
+            DataSet dane = new DataSet();
+            SQLiteDataAdapter da = new SQLiteDataAdapter(command);
+            da.Fill(dane);
+            DataTable table = dane.Tables[0];
+            int numberOfRows = table.Rows.Count;
+
+            myConnection.Close();
+            return numberOfRows;
         }
     }
 }

@@ -43,7 +43,7 @@ namespace ConsoleApplication1
                             del.DeleteAccont();
                             break;
                         case 0:
-                                view.viewGoodBye();
+                            view.viewGoodBye();
                             return;
                         default:
                             Console.WriteLine("Wybrałeś złą opcję!");

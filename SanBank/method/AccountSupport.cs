@@ -8,7 +8,6 @@ namespace SanBank.method
 {
     class AccountSupport
     {
-
         public void statusAcc()
         {
             Console.WriteLine("Aby się zalogować podaj imię uzytkownika..");
